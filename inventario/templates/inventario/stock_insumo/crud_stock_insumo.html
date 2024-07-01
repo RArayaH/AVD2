@@ -1,0 +1,56 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Stock de Insumos {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="/ingresar_stock_insumo" role="button">Agregar Stock Insumo</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Stock de Insumo</h5>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre Insumo</th>
+                        <th scope="col">Stock [Un.]</th>
+                        <th scope="col">Cantidad a Agregar</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stockinsu in stockinsus %} 
+                    <tr>
+                        <form method="post" action="/agregar_stock_insumo/">
+                            {% csrf_token%}                                         
+                            <td scope="row">{{ stockinsu.stock_in_id }}</td>
+                            <td>{{ stockinsu.insumo }}</td>
+                            <td>{{ stockinsu.stock_in_cant_unit }}</td>
+                            <td>
+                                <input type="text" id="cantidad_insumo" name="cantidad_insumo" class="form-control"/>
+                                <input type="hidden" name="stock_in_id" value="{{ stockinsu.stock_in_id }}"/>
+                            </td>
+                            <td>
+                                {% if grupo.name == 'GESTION'%}
+                                <a name="" id="" class="btn btn-info" href="/editar_stock_insumo/{{ stockinsu.stock_in_id }}" role="button">Editar</a> |
+                                {% endif%}
+
+                                {% if grupo.name == 'GESTION' or grupo.name == 'PATIO' or username == 'admin'%}
+                                <button type="submit" class="btn btn-info">Agregar Stock</button>
+                                {% endif%}
+                            </td>
+                        </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

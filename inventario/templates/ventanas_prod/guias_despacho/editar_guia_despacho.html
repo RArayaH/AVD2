@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}Ingresar Guia de Despacho{% endblock %}
+
+{% block contenido %}
+<h2>Ingresar Orden de Producción</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}    
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a class="btn btn-secondary" href="/crud_guia_despacho">Atras</a>
+</form>
+{% endblock %}

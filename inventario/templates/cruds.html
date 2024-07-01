@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block titulo %} Producción y Control de Calidad {% endblock %}
+
+{% block contenido %} 
+<!--
+<br>
+<div class="card text-center">
+    <div class="card-header d-flex justify-content-center">        
+        <h5 class="card-title">Gestion de Plataforma</h5>
+    </div>
+    <div class="card-body d-flex justify-content-center">
+
+        <div class="grid-container" style="display: grid;justify-content: space-between;gap: 10px;">
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Materias Primas
+                        </div>
+                        <div class="card-body">
+                            <a href="/crud_mp">
+                                <h4>Gestión de Materias Primas</h4>
+                            </a>
+                            <a href="/crud_stock_mp">
+                                <h4>Gestión de Stock Materias Primas</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Insumos
+                        </div>
+                        <div class="card-body">
+                            <a href="/crud_insu">
+                                <h4>Gestión de Insumos</h4>
+                            </a>
+                            <a href="/crud_stock_insumo">
+                                <h4>Gestión de Stock de Insumos</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>     
+            </div>
+            
+            <div class="w-25"> </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Productos
+                        </div>
+                        <div class="card-body">
+                            <a href="/crud_producto">
+                                <h4>Gestión de Productos</h4>
+                            </a>
+                            <a href="/crud_comp">
+                                <h4>Gestión de Composiciones</h4>
+                            </a>
+                            <a href="/crud_producto_copec">
+                                <h4>Gestión de Productos Copec</h4> 
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Usuarios
+                        </div>
+                        <div class="card-body">
+                            <a href="/crud_usuario">
+                                <h4>Gestión de Usuarios</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+-->
+
+<div class="container">
+    <div class="row my-4">
+        <h1 class="col-12 text-center">Gestión de Plataforma</h1><br>
+      
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Materias Primas</h2>
+                </div>
+                <div class="card-body">
+                    <a href="/crud_mp" class="card-link">
+                        <h4 class="card-text">Gestión de Materias Primas</h4>
+                    </a>
+                    <a href="/crud_stock_mp" class="card-link">
+                        <h4 class="card-text">Gestión de Stock Materias Primas</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Productos</h2>
+                </div>
+                <div class="card-body">
+                    <a href="/crud_producto" class="card-link">
+                        <h4 class="card-text">Gestión de Productos</h4>
+                    </a>
+                    <a href="/crud_comp" class="card-link">
+                        <h4 class="card-text">Gestión de Composiciones</h4>
+                    </a>
+                    <a href="/crud_producto_copec" class="card-link">
+                        <h4 class="card-text">Gestión de Productos Copec</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Insumos</h2>
+                </div>
+                <div class="card-body">
+                    <a href="/crud_insu" class="card-link">
+                        <h4 class="card-text">Gestión de Insumos</h4>
+                    </a>
+                    <a href="/crud_stock_insumo" class="card-link">
+                        <h4 class="card-text">Gestión de Stock de Insumos</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Usuarios</h2>
+                </div>
+                <div class="card-body">
+                    <a href="/crud_usuario" class="card-link">
+                        <h4 class="card-text">Gestión de Usuarios</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <style type="text/css">            
+            body {
+              background-color: white;
+              font-family: "Roboto", sans-serif;
+            }
+    
+            .right{
+                font-size: 10px;
+                text-align: right;
+    
+            }
+            .left{
+                text-align: left;
+            }
+    
+            .invoice-number {
+                font-size: 18px;
+                font-family: "Roboto-bold", sans-serif;
+            }
+    
+            .col-titles {
+                font-size: 16px;
+                text-decoration: underline;
+                font-family: "Roboto-bold", sans-serif;
+             }
+    
+             .footer {
+                font-size: 8px;
+                text-align: center;
+             }
+    
+             p{
+                font-size: 10px;
+                line-height: 0;
+             }
+    
+             table {
+                border: 1px solid #000;
+                border-bottom: 1px solid #000;
+                text-align: center;
+                width: 25%;
+                border-collapse: collapse;
+            }
+    
+            td, td {
+                border-bottom: 1px solid #000;
+                vertical-align: middle;
+            }
+    
+            .summary{
+                 border-bottom: 1px solid #ddd;
+            }
+    
+            .signatures {
+                border-top: 1px solid black;
+                font-size: 8px;
+                text-align: center;
+            }
+    
+             th {
+                height: 36px;
+    
+             }
+             td {
+                height: 25px;
+                text-align: center;
+             }
+    
+        </style>
+    </head>
+
+    </head>
+
+    <body>
+        <img src="https://valledoradosa.cl/wp-content/uploads/2024/02/valle-dorado-logo-web-mobil-2.png" width="500" height="100" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center" style="float:none;margin:auto;">
+                    <h4 style="font-weight: bold; text-align: center; font-size: 20px;" >
+                        CERTIFICADO N°{{ odp.lote_prod_id }}
+                    </h4>
+                    <h6 style="text-align: left; font-size: 16px;">
+                        {{ fecha }}
+                    </h6>
+                    <h6 style="text-align: left; font-size: 13px;">
+                        <br>
+                        Certificamos que el producto identificado a continuación tiene las características que se detallan:
+                    </h6>
+
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                    
+                            <div class="table">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" style="background-color: green; font-size: 13px;">Producto</th>
+                                            <td scope="col" style="font-size: 13px;">{{ odp.prod_copec.producto }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Batch</th>
+                                            <td style="font-size: 13px;">{{ odp.lote_prod_id }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Fecha de Elaboracion</th>
+                                            <td style="font-size: 13px;">{{ odp.lote_prod_fecha }}</td> 
+                                        </tr>    
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Cliente</th>
+                                            <td style="font-size: 13px;">{{ odp.cliente }}</td> 
+                                        </tr>  
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">N° Pedido</th>
+                                            <td style="font-size: 13px;">{{ odp.num_pedido }}</td>
+                                        </tr>    
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">N° Lotes</th> 
+                                            <td style="font-size: 13px;">{{ odp.lote_mp }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Asr</th>
+                                            <td style="font-size: 13px;">{{ odp.lote_asr }}</td>
+                                        </tr>    
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Formato</th> 
+                                            <td style="font-size: 13px;">{{ odp.prod_copec.insumo }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+                    </div>
+                    <br><br>
+                    <h6 style="font-size: 13px;">A continuacion encontraran las Caracteristicas medidas:</h6>
+
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                    
+                            <div class="table-responsive-sm">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" style="background-color: green;font-size: 13px;">% Glicol</th>
+                                            <td scope="col" style="font-size: 13px;">{{ odp.glicol }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Color</th>
+                                            <td style="font-size: 13px;">{{ odp.color }}</td>
+                                        </tr>
+                                        <tr> 
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Olor</th>
+                                            <td style="font-size: 13px;">{{ odp.olor }}</td> 
+                                        </tr>    
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Apariencia</th>
+                                            <td style="font-size: 13px;">{{ odp.apariencia }}</td> 
+                                        </tr>  
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">pH</th>
+                                            <td style="font-size: 13px;">{{ odp.ph }}</td>
+                                        </tr>    
+                                        <tr>
+                                            <th scope="col" style="background-color: green;font-size: 13px;">Freezing Point</th> 
+                                            <td style="font-size: 13px;">{{ odp.freezing_point }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                            
+                        </div>
+                    </div>
+                        <br><br><br>
+                        <h6 style="text-align: center;font-size: 13px;">Atentamente</h6>
+                        <br>
+                        <h6> </h6>
+                        <br>                    
+                        <h1 style= "text-align: center;"><img src="https://valledoradosa.cl/wp-content/uploads/2024/02/valle-dorado-logo-web-mobil-2.png" width="500" height="100" alt=""></h1>
+                        <h6 style="text-align: center;font-size: 13px;">Jefe Producción</h6>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    </body>
+</html>

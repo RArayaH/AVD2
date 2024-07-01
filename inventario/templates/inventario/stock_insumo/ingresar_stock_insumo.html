@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}Agregar Stock Insumo{% endblock %}
+
+{% block contenido %}
+<h2>Agregar Stock Insumo</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a class="btn btn-secondary" href="/crud_stock_insumo">Atras</a>
+</form>
+{% endblock %}

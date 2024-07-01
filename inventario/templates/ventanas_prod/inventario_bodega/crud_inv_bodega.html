@@ -1,0 +1,45 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Producir Producto {% endblock %}
+
+{% block contenido %}
+
+<br>
+<div class="card">
+    <div class="card-header d-flex justify-content-center">        
+        <h5 class="card-title">Recepcion de Materias Primas e Insumos</h5>
+    </div>
+    <div class="card-body d-flex justify-content-center">
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        Materias Primas
+                    </div>
+                    <div class="card-body">
+                        <a href="/crud_stock_mp">
+                            <h4>Gestión de Stock Materias Primas</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        Insumos
+                    </div>
+                    <div class="card-body">
+                        <a href="/crud_stock_insumo">
+                            <h4>Gestión de Stock de Insumos</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                       
+        </div>
+    </div>
+</div>
+
+{% endblock %} 

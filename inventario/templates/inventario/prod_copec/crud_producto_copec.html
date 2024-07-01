@@ -1,0 +1,42 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Producto Copec {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="/ingresar_producto_copec" role="button">Agregar Producto Copec</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Listado de Productos Copec</h5>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Cod Copec</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %} 
+                    <tr>
+                                               
+                        <td scope="row">{{ producto.prod_copec_cod }}</td>
+                        <td>{{ producto.prod_copec_nom }}</td>                        
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="/editar_producto_copec/{{ producto.prod_copec_id }}" role="button">Editar</a> | 
+                            <a name="" id="" class="btn btn-danger" href="/eliminar_producto_copec/{{ producto.prod_copec_id }}" role="button">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

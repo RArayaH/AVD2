@@ -1,0 +1,54 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Producto {% endblock %}
+
+{% block contenido %} 
+
+{% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="/ingresar_stock_prod" role="button">Agregar Stock Producto</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Stock de Productos</h5>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Stock [Lt]</th>
+                        <th scope="col">Stock Un.</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stockprod in stockprods %} 
+                    <tr>
+                                               
+                        <td scope="row">{{ stockprod.stock_producto_id }}</td>
+                        <td>{{ stockprod.prod_copec }}</td>
+                        <td>{{ stockprod.stock_prod_cant_vol }}</td>
+                        <td>{{ stockprod.stock_prod_cant_uni }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="/editar_stock_prod/{{ stockprod.stock_producto_id }}" role="button">Editar</a>                              
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

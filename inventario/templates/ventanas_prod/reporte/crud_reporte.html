@@ -1,0 +1,72 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Reporte Diario {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+
+    <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title">  </h5>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Ordenar
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="?sort_by=fecha_despacho&direction={% if sort_by == 'fecha_despacho' and direction == 'asc' %}desc{% else %}asc{% endif %}">Fecha</a></li>
+                <li><a class="dropdown-item" href="?sort_by=tipo_despacho&direction={% if sort_by == 'tipo_despacho' and direction == 'asc' %}desc{% else %}asc{% endif %}">Estado</a></li>
+                <li><a class="dropdown-item" href="?sort_by=lote__prod_copec__prod_copec_cod&direction={% if sort_by == 'lote__prod_copec__prod_copec_cod' and direction == 'asc' %}desc{% else %}asc{% endif %}">Codigo Material</a></li>
+                <li><a class="dropdown-item" href="?sort_by=cant_despacho&direction={% if sort_by == 'cant_despacho' and direction == 'asc' %}desc{% else %}asc{% endif %}">Cantidad</a></li>
+                <li><a class="dropdown-item" href="?sort_by=lote__prod_copec__insumo&direction={% if sort_by == 'lote__prod_copec__insumo' and direction == 'asc' %}desc{% else %}asc{% endif %}">Tipo Envasado</a></li>
+                <li><a class="dropdown-item" href="?sort_by=lote__prod_copec__producto&direction={% if sort_by == 'lote__prod_copec__producto' and direction == 'asc' %}desc{% else %}asc{% endif %}">Nombre Producto</a></li>
+                <li><a class="dropdown-item" href="?sort_by=lote__lote_prod_id&direction={% if sort_by == 'lote__lote_prod_id' and direction == 'asc' %}desc{% else %}asc{% endif %}">Lote</a></li>
+                <li><a class="dropdown-item" href="?sort_by=guia_despacho&direction={% if sort_by == 'guia_despacho' and direction == 'asc' %}desc{% else %}asc{% endif %}">Guia de Despacho</a></li>                       
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title">Reporte Diario</h5>
+            
+        <div class="table-responsive">
+            <table class="table table-primary" id="reportTable">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Fecha</th> 
+                        <th scope="col">Estado</th>                       
+                        <th scope="col">Codigo Material</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Tipo Envasado</th>
+                        <th scope="col">Nombre Producto</th>
+                        <th scope="col">Lote</th>
+                        <th scope="col">Guia de Despacho</th>
+                        <th scope="col">Emergencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for desp in desps %} 
+                    <tr>
+                        {% if desp.tipo_despacho == "DESPACHADO" %}                                                                 
+                            <td scope="row">{{ desp.fecha_despacho }}</td>
+                            <td>{{ desp.tipo_despacho }}</td>
+                            <td>{{ desp.lote.prod_copec.prod_copec_cod }}</td>
+                            <td>{{ desp.cant_despacho }}</td>
+                            <td>{{ desp.lote.prod_copec.insumo }}</td>
+                            <td>{{ desp.lote.prod_copec.producto }}</td>
+                            <td>{{ desp.lote.lote_prod_id }}</td>
+                            <td>{{ desp.guia_despacho }}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-danger" href="/eliminar_reporte/{{ desp.despacho_id }}" role="button">Eliminar</a>
+                            </td>
+                        {% endif %}
+                    </tr>                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center; /* Añadir text-align al body */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Cambiar a columna */
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ajustar la altura */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    box-sizing: border-box;
+    background-color: #fff; /* Añadir fondo blanco al contenedor */
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-container {
+    width: 100%; /* Asegurar que la forma ocupe todo el ancho del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 100%; /* Asegurar que la forma ocupe todo el ancho del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    background-color: #5ea7d8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+button[type="submit"]:hover, .btn:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #74cca0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-right: 10px;
+    border: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Asegurar que los botones ocupen todo el ancho */
+}
+
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #74cca0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:last-child {
+    margin-right: 0;
+}

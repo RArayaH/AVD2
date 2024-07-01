@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Eliminar Materia Prima{% endblock %}
+
+{% block contenido %}
+
+<h1>¿Estás seguro que deseas eliminar la Materia Prima "{{ aditivo.adtv_nom }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input class="btn btn-danger" type="submit" value="Eliminar">
+        <a class="btn btn-secondary"  href="/crud_mp">Cancelar</a>
+    </form>
+
+{% endblock %}

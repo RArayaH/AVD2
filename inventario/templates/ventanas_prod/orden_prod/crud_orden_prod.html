@@ -1,0 +1,90 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Orden de Produccion {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <a name="" id="" class="btn btn-success" href="/ingresar_orden_prod" role="button">Ingresar Orden de Producción</a>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Ordenar por
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="?sort_by=lote_prod_id&direction={% if sort_by == 'lote_prod_id' and direction == 'asc' %}desc{% else %}asc{% endif %}">Lote</a></li>
+                <li><a class="dropdown-item" href="?sort_by=lote_prod_fecha&direction={% if sort_by == 'lote_prod_fecha' and direction == 'asc' %}desc{% else %}asc{% endif %}">Fecha</a></li>
+                <li><a class="dropdown-item" href="?sort_by=prod_copec__producto&direction={% if sort_by == 'prod_copec__producto' and direction == 'asc' %}desc{% else %}asc{% endif %}">Producto</a></li>
+                <li><a class="dropdown-item" href="?sort_by=volumen_odp&direction={% if sort_by == 'volumen_odp' and direction == 'asc' %}desc{% else %}asc{% endif %}">Cantidad</a></li>
+                <li><a class="dropdown-item" href="?sort_by=prod_copec__insumo&direction={% if sort_by == 'prod_copec__insumo' and direction == 'asc' %}desc{% else %}asc{% endif %}">Insumo</a></li>
+                <li><a class="dropdown-item" href="?sort_by=cliente&direction={% if sort_by == 'cliente' and direction == 'asc' %}desc{% else %}asc{% endif %}">Cliente</a></li>
+                <li><a class="dropdown-item" href="?sort_by=estado_produccion&direction={% if sort_by == 'estado_produccion' and direction == 'asc' %}desc{% else %}asc{% endif %}">Estado</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Planificación de Producción</h5>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Lote</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad [Lt.]</th>
+                        <th scope="col">Envases</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                        <th scope="col">Certificado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for odp in odps %} 
+                    <tr>
+                        <td scope="row">{{ odp.lote_prod_id }}</td>
+                        <td>{{ odp.lote_prod_fecha }}</td>
+                        <td>{{ odp.prod_copec.producto }}</td>
+                        <td>{{ odp.volumen_odp }}</td>
+                        <td>{{ odp.prod_copec.insumo }}</td>
+                        <td>{{ odp.cliente }}</td>
+                        <td>{{ odp.estado_produccion }}</td>
+                        <td>                            
+                            <a name="" id="" class="btn btn-info" href="/editar_orden_prod/{{ odp.lote_prod_id }}" role="button">Editar</a> |
+                                                        
+                            <a name="" id="" class="btn btn-danger" href="/eliminar_orden_prod/{{ odp.lote_prod_id }}" role="button">Eliminar</a>
+                        </td>
+                        <td>
+                            {% if odp.estado_produccion == "DESPACHADO" or odp.estado_produccion == "DISPONIBLE PARA DESPACHO" %}
+                                <a name="" id="" class="btn btn-info" href="/gen_certificado/{{ odp.lote_prod_id }}" role="button">Certificado</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>        
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar Orden de Producción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí se cargará el contenido del formulario de edición -->
+                <div id="modalContent">
+                    <!-- El contenido se cargará mediante AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %} 

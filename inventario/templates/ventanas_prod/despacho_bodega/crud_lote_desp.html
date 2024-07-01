@@ -1,0 +1,73 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Lotes Disponibles para Despacho {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div>
+            <a name="" id="" class="btn btn-success" href="/crud_despacho" role="button">Lista de Despachos</a>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Ordenar por
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="?sort_by=lote_prod_id&direction={% if sort_by == 'lote_prod_id' and direction == 'asc' %}desc{% else %}asc{% endif %}">Lote</a></li>
+                <li><a class="dropdown-item" href="?sort_by=lote_prod_fecha&direction={% if sort_by == 'lote_prod_fecha' and direction == 'asc' %}desc{% else %}asc{% endif %}">Fecha</a></li>
+                <li><a class="dropdown-item" href="?sort_by=prod_copec__producto&direction={% if sort_by == 'prod_copec__producto' and direction == 'asc' %}desc{% else %}asc{% endif %}">Producto</a></li>
+                <li><a class="dropdown-item" href="?sort_by=prod_copec__insumo&direction={% if sort_by == 'prod_copec__insumo' and direction == 'asc' %}desc{% else %}asc{% endif %}">Insumo</a></li>
+                <li><a class="dropdown-item" href="?sort_by=cant_prod&direction={% if sort_by == 'cant_prod' and direction == 'asc' %}desc{% else %}asc{% endif %}">Cantidad</a></li>
+                <li><a class="dropdown-item" href="?sort_by=estado_produccion&direction={% if sort_by == 'estado_produccion' and direction == 'asc' %}desc{% else %}asc{% endif %}">Estado</a></li>
+                                     
+            </ul>
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Lotes Disponibles para Despacho</h5>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Lote</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Envases</th>
+                        <th scope="col">Cantidad [Un.]</th>                        
+                        <th scope="col">Estado</th>
+                        <th scope="col">Cantidad a Despachar</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for odp in odps %} 
+                    <tr>
+                        <form method="post" action="/ingresar_despacho/">
+                            {% csrf_token %}
+                            {% if odp.estado_produccion == "DISPONIBLE PARA DESPACHO" %}
+                            <td scope="row">{{ odp.lote_prod_id }}</td>
+                            <td>{{ odp.lote_prod_fecha }}</td>
+                            <td>{{ odp.prod_copec.producto }}</td>
+                            <td>{{ odp.prod_copec.insumo }}</td>
+                            <td>{{ odp.cant_prod }}</td>                        
+                            <td>{{ odp.estado_produccion }}</td>
+                            <td>
+                                <input type="text" id="cantidad_despachar" name="cantidad_despachar" class="form-control"/>
+                                <input type="hidden" name="lote_id" value="{{ odp.lote_prod_id }}"/>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-info">Generar Despacho</button>
+                            </td>
+                        </form>
+                    </tr>
+                    {% endif %} 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

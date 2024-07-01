@@ -1,0 +1,48 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Insumos {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="/ingresar_insumo" role="button">Agregar Insumo</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Listado de Insumos</h5>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Volumen</th>
+                        <th scope="col">Envases/Caja</th>
+                        <th scope="col">Cajas/Pallet</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for insu in insus %} 
+                    <tr>
+                                               
+                        <td scope="row">{{ insu.insumo_id }}</td>
+                        <td>{{ insu.insumo_nom }}</td>
+                        <td>{{ insu.insumo_vol }}</td>
+                        <td>{{ insu.insumo_env_por_caja }}</td>
+                        <td>{{ insu.insumo_cajas_por_pallet }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="/editar_insumo/{{ insu.insumo_id }}" role="button">Editar</a> | 
+                            <a name="" id="" class="btn btn-danger" href="/eliminar_insumo/{{ insu.insumo_id }}" role="button">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

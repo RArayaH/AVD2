@@ -1,0 +1,59 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Composicion {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="/ingresar_producto" role="button">Agregar Producto</a>
+        <br>
+        <br>
+        <a name="" id="" class="btn btn-success" href="/ingresar_comp" role="button">Agregar Composicion de Producto</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Composicion de Productos</h5>
+        
+        <form method="get" action="">
+            <div class="form-group">
+                <label for="product-select">Seleccionar Producto:</label>
+                <select class="form-control" id="product-select" name="producto">
+                    <option value="">Ninguno</option>
+                    {% for producto in productos %}
+                    <option value="{{ producto }}" {% if producto == producto_seleccionado %}selected{% endif %}>{{ producto }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Mostrar</button>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Aditivo</th>
+                        <th scope="col">PP</th>
+                        <th scope="col">VV</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comp in comps %} 
+                    <tr>
+                        <td scope="row">{{ comp.info_aditivo }}</td>
+                        <td>{{ comp.pp }}</td>
+                        <td>{{ comp.vv }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="/editar_comp/{{ comp.comp_producto_id }}" role="button">Editar</a> | 
+                            <a name="" id="" class="btn btn-danger" href="/eliminar_comp/{{ comp.comp_producto_id }}" role="button">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 

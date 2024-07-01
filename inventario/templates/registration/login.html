@@ -1,0 +1,20 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+    </head>
+    <div class="body"></div>
+            <div class="grad"></div>
+            <div class="header">
+                <div>Valle<span>Dorado</span></div>
+            </div>
+            <br>
+            <div class="login">
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Usuario" name="username"><br>
+                    <input type="password" placeholder="Contraseña" name="password"><br>
+                    <input class="button" type="submit" value="Ingresar">
+                </form>
+            </div>
+</html>

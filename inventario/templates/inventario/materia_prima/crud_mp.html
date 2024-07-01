@@ -1,0 +1,44 @@
+{%  extends "base.html" %}
+
+{% block titulo%} Materias Primas {% endblock %}
+
+{% block contenido %} 
+<br>
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="/ingresar_mp" role="button">Agregar Materia Prima</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Listado de Materias Primas</h5>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Densidad</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mp in mps %} 
+                    <tr>
+                                               
+                        <td scope="row">{{ mp.adtv_id }}</td>
+                        <td>{{ mp.adtv_nom }}</td>
+                        <td>{{ mp.adtv_dens }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="/editar_mp/{{ mp.adtv_id }}/" role="button">Editar</a> | 
+                            <a name="" id="" class="btn btn-danger" href="/eliminar_mp/{{ mp.adtv_id }}" role="button">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %} 
