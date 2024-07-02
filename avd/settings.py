@@ -79,11 +79,14 @@ WSGI_APPLICATION = 'avd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': {
+                'options': '-c search_path=myschema'
+            },
         'NAME': 'django',
         'USER': 'admin',
         'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': 5432,
+        'PORT': '5432',
     }
 }
 
