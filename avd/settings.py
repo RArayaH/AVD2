@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-usf2=6p(sf*09$31(z*8$6h+xy&$4=^4@chjam480ng#9kg7fj
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['18.229.189.117', 'localhost']
+ALLOWED_HOSTS = ['177.71.164.171', 'localhost']
 
 
 # Application definition
