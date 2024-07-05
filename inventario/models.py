@@ -52,7 +52,7 @@ class ProdCopec(models.Model):
 
 class StockAditivo(models.Model):
     stock_ad_id = models.AutoField(primary_key=True)
-    nomAditivo = models.ForeignKey(InfoAditivo, on_delete=models.CASCADE)
+    nomAditivo = models.ForeignKey(InfoAditivo, on_delete=models.CASCADE, unique=True)
     stock_ad_cant_lt = models.DecimalField(max_digits=10, decimal_places=2)
     class Meta:
         permissions = [
