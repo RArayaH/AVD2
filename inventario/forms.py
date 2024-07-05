@@ -59,8 +59,8 @@ class CompProductoForm(forms.ModelForm):
         labels = {
             'producto': 'Nombre del Producto',
             'info_aditivo': 'Nombre del Aditivo', 
-            'pp': 'Porcentaje Peso Peso', 
-            'vv': 'Porcentaje Volumen Volumen'
+            'pp': 'Porcentaje Peso/Peso', 
+            'vv': 'Porcentaje Volumen/Volumen'
         }
 
 class ProdCopecForm(forms.ModelForm):
@@ -68,7 +68,7 @@ class ProdCopecForm(forms.ModelForm):
         model = ProdCopec
         fields = ['prod_copec_cod','prod_copec_nom','producto', 'insumo']
         labels = {
-            'prod_copec_cod':'Codigo de producto COPEC',
+            'prod_copec_cod':'Código de producto COPEC',
             'prod_copec_nom':'Nombre de producto COPEC',
             'producto': 'Nombre del Producto',
             'insumo': 'Nombre del Insumo'
@@ -107,7 +107,7 @@ class OdpForm(forms.ModelForm):
         model = LoteProd
         fields = ['lote_prod_fecha', 'prod_copec','volumen_odp', 'cliente']
         labels = {
-            'lote_prod_fecha': 'Fecha de Planificacion', 
+            'lote_prod_fecha': 'Fecha de Planificación', 
             'prod_copec': 'Producto Copec',
             'volumen_odp': 'Volumen [LT]',
             'cliente': 'Cliente'
@@ -145,7 +145,7 @@ class CalidadForm(forms.ModelForm):
             'fecha_ven_colorante':'Fecha de vencimiento de Colorante', 
             'lote_aromatizante':'Lote de Aromatizante', 
             'fecha_ven_aromatizante':'Fecha de vencimiento de Aromatizante', 
-            'num_pedido':'Numero de Pedido', 
+            'num_pedido':'Número de Pedido', 
             'lote_asr':'Lote de ASR', 
             'fecha_ven_asr':'Fecha de vencimiento de ASR',
             'freezing_point':'Freezing Point del Producto',
@@ -155,7 +155,7 @@ class CalidadForm(forms.ModelForm):
             'olor':'Olor del Producto',
             'apariencia':'Apariencia del Producto',
             'sellos_tapas':'Sellos/tapas',
-            'valvulas':'Valvulas'                   
+            'valvulas':'Válvulas'                   
         }
 
 class DespachoForm(forms.ModelForm):
@@ -165,7 +165,7 @@ class DespachoForm(forms.ModelForm):
         labels = {
             'lote': 'Lote', 
             'fecha_despacho': 'Fecha de Despacho',
-            'cant_despacho': 'cant_despacho'
+            'cant_despacho': 'Cantidad a Despachar'
         }
 
 class GuiaDespachoForm(forms.ModelForm):
@@ -173,6 +173,6 @@ class GuiaDespachoForm(forms.ModelForm):
         model = Despacho
         fields = ['guia_despacho']
         labels = {
-            'Guia de Despacho': 'guia_despacho'
+            'Guia de Despacho': 'Guía de despacho'
         }
 #"""
