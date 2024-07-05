@@ -26,9 +26,11 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
 ALLOWED_HOSTS = ['177.71.164.171', 'localhost']
 
+"""
+ALLOWED_HOSTS = ['177.71.164.171', 'localhost', '127.0.0.1']
+"""
 
 # Application definition
 
@@ -78,13 +80,17 @@ WSGI_APPLICATION = 'avd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+
 """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'db.sqlite3',
     }
 }
+
 """
 
 DATABASES = {
@@ -142,16 +148,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS =(os.path.join(BASE_DIR, 'assets'),)
-
-"""
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-"""
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media") 
