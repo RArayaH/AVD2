@@ -15,7 +15,6 @@
             <table class="table table-primary">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Densidad</th>
                         <th scope="col">Acciones</th>
@@ -24,9 +23,7 @@
                 <tbody>
                     {% for mp in mps %} 
                     <tr>
-                                               
-                        <td scope="row">{{ mp.adtv_id }}</td>
-                        <td>{{ mp.adtv_nom }}</td>
+                        <td scope="row">{{ mp.adtv_nom }}</td>
                         <td>{{ mp.adtv_dens }}</td>
                         <td>
                             <a name="" id="" class="btn btn-info" href="/editar_mp/{{ mp.adtv_id }}/" role="button">Editar</a> | 
