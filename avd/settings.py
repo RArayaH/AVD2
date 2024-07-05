@@ -29,6 +29,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['177.71.164.171', 'localhost']
 
 """
+
+
 ALLOWED_HOSTS = ['177.71.164.171', 'localhost', '127.0.0.1']
 """
 
@@ -80,19 +82,6 @@ WSGI_APPLICATION = 'avd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
-
-"""
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-    }
-}
-
-"""
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -106,6 +95,21 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
+}
+
+
+
+"""
+
+
 
 
 # Password validation
