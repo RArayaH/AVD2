@@ -42,7 +42,7 @@ class CompProducto(models.Model):
 
 class ProdCopec(models.Model):
     prod_copec_id = models.AutoField(primary_key=True)
-    prod_copec_cod = models.CharField(max_length=10, blank=True, null=True)
+    prod_copec_cod = models.CharField(max_length=60, blank=True, null=True)
     prod_copec_nom = models.CharField(max_length=60, blank=True, null=True)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     insumo = models.ForeignKey(Insumo, on_delete=models.CASCADE)
