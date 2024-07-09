@@ -10,41 +10,6 @@
         <script src="{% static 'js/scripts.js' %}"></script>
     </head>
     <body style="background-color: #F4F4F4;">
-        <!--
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000047;">
-            <a><img src="https://valledoradosa.cl/wp-content/uploads/2024/02/valle-dorado-logo-web-mobil-2.png" width="150" height="40" alt=""></a>
-            <div class="navbar-nav">                
-                {% if grupo.name == 'GESTION' %}
-                    <a class="nav-item nav-link active" href="/cruds">Gestión de Plataforma</a>
-                {% endif %}
-                
-                {% if grupo.name == 'PATIO' or grupo.name == 'GESTION'  %}
-                    <a class="nav-item nav-link active" href="/crud_inv_bodega">Recepción</a>
-                {% endif %}
-                
-                {% if grupo.name == 'GESTION' or grupo.name == 'GESTION' %}
-                    <a class="nav-item nav-link active" href="/crud_orden_prod">Orden de Producción</a>
-                {% endif %}
-                
-                {% if grupo.name == 'CALIDAD' or grupo.name == 'GESTION' %}                                
-                    <a class="nav-item nav-link active" href="/crud_calidad">Producción y Calidad</a>
-                {% endif %}
-                
-                {% if grupo.name == 'PATIO' or grupo.name == 'GESTION' %}
-                    <a class="nav-item nav-link active" href="/crud_lote_desp">Despacho</a>
-                {% endif %}
-                
-                {% if grupo.name == 'GUIA_DESP' or grupo.name == 'GESTION' %}
-                    <a class="nav-item nav-link active" href="/crud_guia_despacho">Guias De Despacho</a>
-                {% endif %}
-                
-                {% if grupo.name == 'GESTION' or grupo.name == 'GESTION'  %}
-                    <a class="nav-item nav-link active" href="/crud_reporte">Reporte Diario</a>
-                {% endif %}
-                <a class="nav-item nav-link active" href="#" onclick="logout('{{ csrf_token }}', '{% url "logout" %}', '{% url "login" %}')">Cerrar Sesión</a>
-            </div>
-        </nav>
-        -->
 
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000047;">
             <a class="navbar-brand" href="#">
