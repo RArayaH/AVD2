@@ -89,7 +89,7 @@ input[type="submit"]:hover {
 	bottom: -40px;
 	width: auto;
 	height: auto;	
-	background-image: url("{% static 'img/fotoen_baja.jpg' %}");	
+	background-image: url("http://177.71.164.171{% static 'img/fotoen_baja.jpg' %}");	
 	/*
 	background-color: brown;
 	*/
