@@ -89,7 +89,10 @@ input[type="submit"]:hover {
 	bottom: -40px;
 	width: auto;
 	height: auto;
+	/*
 	background-image: url("{% static 'img/fotoen_baja.jpg' %}");
+	*/
+	background-color: brown;
 	background-size: cover;
 	-webkit-filter: blur(5px);
     filter: blur(5px);
